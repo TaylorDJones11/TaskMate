@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Form() {
+function Form({ addTodo }) {
   const [value, setValue] = useState('');
 
   function handleChange(e) {
@@ -9,7 +9,9 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(value);
+    if (value.trim() === '') return;
+    addTodo(value);
+    setValue('');
   }
 
   return (
@@ -17,11 +19,15 @@ function Form() {
       <input
         type='text'
         className='todo-input'
-        placeholder='What is the task toaday?'
+        placeholder='What is the task today?'
+        value={value}
         onChange={handleChange}
       />
-      <button className='todo-btn'>Add Task</button>
+      <button className='todo-btn' type='submit'>
+        Add Task
+      </button>
     </form>
   );
 }
+
 export default Form;
