@@ -24,12 +24,31 @@ function ToDoWrapper() {
       )
     );
   }
+
+  function deleteTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  function editTodo(id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+      )
+    );
+  }
+
   return (
     <div className='TodoWrapper'>
       <h2>✨ Let's Get Things Done! ✨</h2>
       <Form addTodo={addTodo} />
       {todos.map((todo, index) => (
-        <Item task={todo} key={index} toggleComplete={toggleComplete} />
+        <Item
+          task={todo}
+          key={index}
+          toggleComplete={toggleComplete}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+        />
       ))}
     </div>
   );
