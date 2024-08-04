@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Form from './Form';
 import { nanoid } from 'nanoid';
 import Item from './Item';
+import EditToDoForm from './EditToDoForm';
 
 function ToDoWrapper() {
   const [todos, setTodos] = useState([]);
@@ -36,20 +37,31 @@ function ToDoWrapper() {
       )
     );
   }
+  function editTask(task, id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+      )
+    );
+  }
 
   return (
     <div className='TodoWrapper'>
       <h2>✨ Let's Get Things Done! ✨</h2>
       <Form addTodo={addTodo} />
-      {todos.map((todo, index) => (
-        <Item
-          task={todo}
-          key={index}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-        />
-      ))}
+      {todos.map((todo, index) =>
+        todo.isEditing ? (
+          <EditToDoForm editTodo={editTask} task={todo} />
+        ) : (
+          <Item
+            task={todo}
+            key={index}
+            toggleComplete={toggleComplete}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+          />
+        )
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function EditToDoForm({ editTodo, task }) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(task.task);
 
   function handleChange(e) {
     setValue(e.target.value);
