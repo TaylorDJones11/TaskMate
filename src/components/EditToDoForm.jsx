@@ -10,8 +10,7 @@ function EditToDoForm({ editTodo, task }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (value.trim() === '') return;
-    editTodo(value, task.id);
-    setValue('');
+    editTodo(value);
   }
 
   return (
@@ -29,4 +28,5 @@ function EditToDoForm({ editTodo, task }) {
     </form>
   );
 }
+
 export default EditToDoForm;
