@@ -17,12 +17,10 @@ body {
   font-family: sans-serif;
   color: #fff;
   font-weight: 500;
-}
-
-.app {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 h1 {
@@ -40,13 +38,20 @@ h1 {
 
 .TodoWrapper {
   background: #1a1a40;
-  margin-top: 5rem;
   padding: 2rem;
   border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 250px;
 }
 
 .todo-form {
   width: 100%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
@@ -57,8 +62,10 @@ h1 {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   color: #fff;
+  flex: 1;
 }
 
 .todo-input::placeholder {
@@ -69,8 +76,11 @@ h1 {
   background: #8758ff;
   color: #fff;
   border: none;
-  padding: 0.55rem;
+  padding: 0.55rem 1rem;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .Todo {
@@ -82,6 +92,7 @@ h1 {
   padding: 0.75rem 1rem;
   border-radius: 5px;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .fa-trash {

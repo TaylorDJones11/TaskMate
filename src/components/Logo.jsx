@@ -1,4 +1,9 @@
 function Logo() {
-  return <h1>TaskMate</h1>;
+  return (
+    <div>
+      <h1 className='logo'>TaskMate</h1>
+      <br />
+    </div>
+  );
 }
 export default Logo;
